@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
 const PORT=process.env.PORT;  //env
-
+const cors =require("cors");
 const db = require("./config/db");
 
+app.use(express.static("public"));
 
 
 app.use(express.json());
 
 //get all URLs
-app.get("/",async (req,res)=>{
+app.get("/api/urls",async (req,res)=>{
     try{
         const [result]=await db.execute("SELECT * FROM urltable");
         res.json(result);

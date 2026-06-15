@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortening Service</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>URL Shortening Service</h1>
+
+        <!-- Create Short URL -->
+        <div class="card">
+            <h2>Create Short URL</h2>
+
+            <form id="urlForm">
+                <input
+                    type="text"
+                    id="longurl"
+                    placeholder="Enter Long URL"
+                    required
+                >
+
+                <button type="submit">
+                    Shorten URL
+                </button>
+            </form>
+
+            <div id="result"></div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="card">
+            <h2>URL Statistics</h2>
+
+            <input
+                type="text"
+                id="shortcode"
+                placeholder="Enter short code (e.g. web1)"
+            >
+
+            <button onclick="getStats()">
+                Get Statistics
+            </button>
+
+            <div id="stats"></div>
+        </div>
+
+        <!-- All URLs -->
+        <div class="card">
+            <h2>All URLs</h2>
+
+            <button onclick="loadUrls()">
+                Refresh
+            </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Long URL</th>
+                        <th>Short URL</th>
+                        <th>Visits</th>
+                    </tr>
+                </thead>
+
+                <tbody id="urlTableBody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
